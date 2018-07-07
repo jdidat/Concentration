@@ -20,10 +20,15 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
+    var emojiChoices = ["🎃", "👻", "🎃", "👻"]
+    
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
-        var cardNumber = cardButtons.index(of: sender)
-        
+        if let cardNumber = cardButtons.index(of: sender) {
+            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+        } else {
+            print("error")
+        }
     }
     
     
